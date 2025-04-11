@@ -25,11 +25,11 @@
 })" class="relative bg-gray-50 max-w-7xl mx-auto py-12">
     <!-- Hero Banner -->
     <div class="relative h-80 bg-cover bg-center flex items-center justify-center text-center"
-        style="background-image: url('{{ asset('images/mens-banner.jpg') }}');">
+        style="background-image: url('{{ asset('images/kids-banner.jpg') }}');">
         <div class="bg-black bg-opacity-40 w-full h-full absolute top-0 left-0"></div>
         <div class="relative z-10 text-white">
-            <h2 class="text-3xl font-bold">MEN’S FASHION</h2>
-            <p class="mt-1 text-sm">From streetwear to formals, shop the latest styles</p>
+            <h2 class="text-3xl font-bold">KID'S WEAR</h2>
+            <p class="mt-1 text-sm">Adorable outfits for little ones</p>
         </div>
     </div>
 

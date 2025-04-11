@@ -20,132 +20,73 @@
     <hr>
     @include('frontend.mens-fashion')
     <hr>
-    {{-- @include('frontend.womens-fashion')
+    @include('frontend.womens-fashion')
     <hr>
     @include('frontend.kids-fashion')
     <hr>
-    @include('frontend.accessories')
-    <hr> --}}
     @include('frontend.newsletter')
     @include('frontend.footer')
 
     <script>
         document.addEventListener('alpine:init', () => {
-        Alpine.data('categorySlider', () => ({
-            categories: [
-                { 
-                    title: 'Casual Wear', 
-                    subtitle: 'Everyday Essentials',
-                    image: '{{asset('images/kids.jpg')}}'
+            Alpine.data('slider', (config) => ({
+                categories: config.categories,
+                title: config.title,
+                subtitle: config.subtitle,
+                bannerImage: config.bannerImage,
+                progress: 0,
+                activeCategory: 0,
+                itemWidth: 0,
+                visibleItems: 3,
+                maxScroll: 0,
+                totalItems: 0,
+        
+                init() {
+                    this.$nextTick(() => {
+                        const slider = this.$refs.slider;
+                        this.itemWidth = slider.children[0].offsetWidth + 16;
+                        this.visibleItems = Math.floor(slider.clientWidth / this.itemWidth);
+                        this.maxScroll = slider.scrollWidth - slider.clientWidth;
+                        this.updateProgress();
+                        this.totalItems = slider.children.length;
+                    });
                 },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: '{{asset('images/mens.jpg')}}'                },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: '{{asset('images/women.jpg')}}'
-
+        
+                updateProgress() {
+                    const slider = this.$refs.slider;
+                    const scrollLeft = slider.scrollLeft;
+                    this.maxScroll = slider.scrollWidth - slider.clientWidth;
+                    this.progress = Math.min((scrollLeft / this.maxScroll) * 100, 100);
+                    this.activeCategory = Math.round(scrollLeft / this.itemWidth);
                 },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: '{{asset('images/watch.jpg')}}'
+        
+                scrollLeft() {
+                    const slider = this.$refs.slider;
+                    const scrollAmount = this.itemWidth * this.visibleItems;
+                    const newPosition = Math.max(slider.scrollLeft - scrollAmount, 0);
+                    
+                    slider.scrollTo({
+                        left: newPosition,
+                        behavior: 'smooth'
+                    });
                 },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: 'https://images.unsplash.com/photo-1536766820879-059fec98ec0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800'
+        
+                scrollRight() {
+                    const slider = this.$refs.slider;
+                    const scrollAmount = this.itemWidth * this.visibleItems;
+                    const newPosition = Math.min(slider.scrollLeft + scrollAmount, this.maxScroll);
+                    
+                    slider.scrollTo({
+                        left: newPosition,
+                        behavior: 'smooth'
+                    });
                 },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: 'https://images.unsplash.com/photo-1536766820879-059fec98ec0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800'
-                },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: 'https://images.unsplash.com/photo-1536766820879-059fec98ec0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800'
-                },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: 'https://images.unsplash.com/photo-1536766820879-059fec98ec0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800'
-                },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: 'https://images.unsplash.com/photo-1536766820879-059fec98ec0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800'
-                },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: 'https://images.unsplash.com/photo-1536766820879-059fec98ec0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800'
-                },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: 'https://images.unsplash.com/photo-1536766820879-059fec98ec0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800'
-                },
-                { 
-                    title: 'Formal Attire', 
-                    subtitle: 'Office & Events',
-                    image: 'https://images.unsplash.com/photo-1536766820879-059fec98ec0a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800'
-                },
-                
-            ],
-            progress: 0,
-            activeCategory: 0,
-            itemWidth: 0,
-            visibleItems: 3,
-    
-            init() {
-            this.$nextTick(() => {
-                const slider = this.$refs.slider;
-                this.itemWidth = slider.children[0].offsetWidth + 16;
-                this.visibleItems = Math.floor(slider.clientWidth / this.itemWidth);
-                this.maxScroll = slider.scrollWidth - slider.clientWidth;
-                this.updateProgress();
-                this.totalItems = slider.children.length;
-            });
-        },
-
-        updateProgress() {
-            const slider = this.$refs.slider;
-            const scrollLeft = slider.scrollLeft;
-            this.maxScroll = slider.scrollWidth - slider.clientWidth;
-            this.progress = Math.min((scrollLeft / this.maxScroll) * 100, 100);
-            this.activeCategory = Math.round(scrollLeft / this.itemWidth);
-        },
-
-        scrollLeft() {
-            const slider = this.$refs.slider;
-            const scrollAmount = this.itemWidth * this.visibleItems;
-            const newPosition = Math.max(slider.scrollLeft - scrollAmount, 0);
-            
-            slider.scrollTo({
-                left: newPosition,
-                behavior: 'smooth'
-            });
-        },
-
-        scrollRight() {
-            const slider = this.$refs.slider;
-            const scrollAmount = this.itemWidth * this.visibleItems;
-            const newPosition = Math.min(slider.scrollLeft + scrollAmount, this.maxScroll);
-            
-            slider.scrollTo({
-                left: newPosition,
-                behavior: 'smooth'
-            });
-        },
-    
-            goToCategory(category) {
-                console.log('Selected category:', category);
-            }
-        }));
-    });
+        
+                goToCategory(category) {
+                    console.log('Selected category:', category);
+                }
+            }));
+        });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
