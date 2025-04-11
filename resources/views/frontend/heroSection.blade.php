@@ -12,7 +12,7 @@
                         <p class="text-lg md:text-xl mb-8 drop-shadow-md">Discover our curated collection for modern
                             lifestyles</p>
                         <button
-                            class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full text-lg transition-colors">
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 text-lg transition-colors">
                             Shop Now
                         </button>
                     </div>
@@ -27,7 +27,7 @@
                         <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-md">Summer Sale</h1>
                         <p class="text-lg md:text-xl mb-8 drop-shadow-md">Up to 50% off selected items</p>
                         <button
-                            class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full text-lg transition-colors">
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 text-lg transition-colors">
                             Explore Offers
                         </button>
                     </div>
@@ -42,7 +42,7 @@
                         <h1 class="text-4xl md:text-6xl font-bold mb-4 drop-shadow-md">Summer Sale</h1>
                         <p class="text-lg md:text-xl mb-8 drop-shadow-md">Up to 50% off selected items</p>
                         <button
-                            class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-full text-lg transition-colors">
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 text-lg transition-colors">
                             Explore Offers
                         </button>
                     </div>

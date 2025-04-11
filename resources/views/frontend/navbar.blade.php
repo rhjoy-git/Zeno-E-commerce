@@ -116,24 +116,32 @@
                     <div class="space-y-4">
                         <h3 class="font-semibold text-gray-900 text-lg mb-4">Top Brands</h3>
                         <div class="grid grid-cols-2 gap-3">
-                            <a href="#" class="p-3 bg-gray-50 hover:bg-gray-100 rounded-lg flex items-center">
-                                <img src="{{ asset('images/nike.png') }}" class="h-6 w-auto" alt="Nike">
+                            <a href="#"
+                                class="p-1 bg-gray-50 hover:bg-gray-100 rounded-lg flex items-center justify-center">
+                                <img src="{{ asset('images/nike.png') }}" class="h-10 w-fit object-contain scale-150"
+                                    alt="Nike">
                             </a>
-                            <a href="#" class="p-3 bg-gray-50 hover:bg-gray-100 rounded-lg flex items-center">
-                                <img src="{{ asset('images/adidas.png') }}" class="h-6 w-auto" alt="Adidas">
+                            <a href="#"
+                                class="p-1 bg-gray-50 hover:bg-gray-100 rounded-lg flex items-center justify-center">
+                                <img src="{{ asset('images/adidas.png') }}" class="h-10 w-fit object-contain scale-150"
+                                    alt="Adidas">
                             </a>
-                            <a href="#" class="p-3 bg-gray-50 hover:bg-gray-100 rounded-lg flex items-center">
-                                <img src="{{ asset('images/puma.png') }}" class="h-6 w-auto" alt="Puma">
+                            <a href="#"
+                                class="p-1 bg-gray-50 hover:bg-gray-100 rounded-lg flex items-center justify-center">
+                                <img src="{{ asset('images/puma.png') }}" class="h-10 w-fit object-contain scale-150"
+                                    alt="Puma">
                             </a>
-                            <a href="#" class="p-3 bg-gray-50 hover:bg-gray-100 rounded-lg flex items-center">
-                                <img src="{{ asset('images/levis.png') }}" class="h-6 w-auto" alt="Levi's">
+                            <a href="#"
+                                class="p-1 bg-gray-50 hover:bg-gray-100 rounded-lg flex items-center justify-center">
+                                <img src="{{ asset('images/levis.png') }}" class="h-10 w-fit object-contain scale-150"
+                                    alt="Levi's">
                             </a>
                         </div>
                     </div>
 
                     <!-- Promo Banner -->
                     <div class="relative rounded-xl overflow-hidden bg-gray-100">
-                        <img src="{{ asset('images/pro3.jpg') }}" alt="Men's Special Offer"
+                        <img src="{{ asset('images/special-offer.jpg') }}" alt="Men's Special Offer"
                             class="w-full h-full object-cover absolute inset-0">
                         <div class="relative p-6 h-full flex flex-col justify-end bg-gradient-to-t from-black/60">
                             <h3 class="text-2xl font-bold text-white mb-2">Season Final Sale</h3>
